@@ -1,17 +1,20 @@
-# src/main.py
+# source/main.py
 from calculator import Calculator
-from calculator_commands import AddCommand, SubtractCommand, MultiplyCommand, DivideCommand
+from plugin_loader import PluginLoader
 
 def repl():
     calculator = Calculator()
-    commands = {
-        'add': AddCommand(calculator),
-        'subtract': SubtractCommand(calculator),
-        'multiply': MultiplyCommand(calculator),
-        'divide': DivideCommand(calculator),
-    }
+    plugin_loader = PluginLoader()
+    loaded_plugins = plugin_loader.load_plugins()
     
+    # Instantiate plugins and store command references
+    commands = {}
+    for name, plugin_cls in loaded_plugins.items():
+        commands[name] = plugin_cls(calculator)
+
     print("Welcome! Type 'exit' to quit.")
+    print("Available commands: add, subtract, multiply, divide")
+    
     while True:
         command_input = input(">>> ").strip().lower()
         if command_input == "exit":
