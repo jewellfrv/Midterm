@@ -1,0 +1,34 @@
+# .github/workflows/python-app.yml
+
+name: Python CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'  # Specify the Python version
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Lint with Pylint
+      run: |
+        source venv/bin/activate
+        pylint source tests
+
+    - name: Run tests with pytest
+      run: |
+        source venv/bin/activate
+        pytest --cov=source --cov-report=xml
