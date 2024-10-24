@@ -13,5 +13,5 @@ class Calculator:
     def divide(self, a: float, b: float) -> float:
         if b == 0:
             logging.error("Division by zero attempted")
-            raise ValueError("Cannot divide by zero")
+            raise ZeroDivisionError("Cannot divide by zero")
         return a / b
