@@ -3,6 +3,10 @@
 
 from .calculator import Calculator
 from .plugin_loader import PluginLoader
+from .history_manager import HistoryManager
+
+history_manager = HistoryManager("history.csv")
+history_df = history_manager.load_history()
 
 def repl():
     # Main function to run the calculator REPL interface
@@ -44,4 +48,3 @@ def repl():
                 print(e)
         else:
             print(f"Command '{command_input}' is not recognized yet.")
-            
