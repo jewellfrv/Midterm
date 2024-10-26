@@ -22,8 +22,8 @@ Features
 
    Plugin Architecture: By dynamically loading plugins from the plugins folder, plugin architectures are used. Every plugin implements a standardized execute method from the Plugin interface, representing an arithmetic operation.
 
-        Impact: Without changing the core classes, this structure allows the system to be expanded. The Open/Closed Principle allows for the easy addition of new operations as plugins.
+        Impact: Without changing the core classes, this structure allows the system to be expanded. The open/closed principle allows for the easy addition of new operations as plugins.
 
-    Logging Methodology: Python's logging module is used to implement a professional logging strategy. Logging is set up to record events at various levels (INFO, WARNING, ERROR), guaranteeing that all important actions and mistakes are accurately documented.    
+    Logging Methodology: Python's logging module is used to implement a professional logging strategy. Logging is set up to record events at various levels (Info, warning, error), guaranteeing that all important actions and mistakes are accurately documented.
 
-        Impact: By offering thorough logs, this all-inclusive logging approach facilitates debugging, improves project maintainability, and aids in monitoring the behavior of the application during runtime.
+         Impact: By offering thorough logs, this all-inclusive logging approach facilitaes debugging, improves maintainability, and aids in monitoring the behavior of the application during the runtime.
